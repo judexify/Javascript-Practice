@@ -131,67 +131,256 @@ if (clientOne.bmi > clientTwo.bmi) {
   );
 }
 
-
 // HOTEL BILLING SYSTEM
+// const guestOne = {
+//   name: "MrEazi",
+//   nightSpent: 8,
+//   isVip: true,
+//   amountToPay: function () {
+//     const pricePerNight = 50;
+//     const discountLevel1 = 0.2;
+//     const discountLevel2 = 0.1;
+//     this.amountPaid = this.nightSpent * pricePerNight;
+//     if (this.nightSpent > 7 && this.isVip === true) {
+//       this.amountPaid = this.amountPaid - this.amountPaid * discountLevel1;
+//     } else if (this.nightSpent > 7 && this.isVip === false) {
+//       this.amountPaid = this.amountPaid - this.amountPaid * discountLevel2;
+//     } else {
+//       this.amountPaid = this.amountPaid;
+//     }
+//     return this.amountPaid;
+//   },
+// };
+
+// const guestTwo = {
+//   name: "Peller",
+//   nightSpent: 5,
+//   isVip: false,
+//   amountToPay: function () {
+//     const pricePerNight = 50;
+//     const discountLevel1 = 0.2;
+//     const discountLevel2 = 0.1;
+//     this.amountPaid = this.nightSpent * pricePerNight;
+//     if (this.nightSpent > 7 && this.isVip === true) {
+//       this.amountPaid = this.amountPaid - this.amountPaid * discountLevel1;
+//     } else if (this.nightSpent > 7 && this.isVip === false) {
+//       this.amountPaid = this.amountPaid - this.amountPaid * discountLevel2;
+//     } else {
+//       this.amountPaid = this.amountPaid;
+//     }
+//     return this.amountPaid;
+//   },
+// };
+
+// const guestThree = {
+//   name: "GehGeh",
+//   nightSpent: 10,
+//   isVip: true,
+//   amountToPay: function () {
+//     const pricePerNight = 50;
+//     const discountLevel1 = 0.2;
+//     const discountLevel2 = 0.1;
+//     this.amountPaid = this.nightSpent * pricePerNight;
+//     if (this.nightSpent > 7 && this.isVip === true) {
+//       this.amountPaid = this.amountPaid - this.amountPaid * discountLevel1;
+//     } else if (this.nightSpent > 7 && this.isVip === false) {
+//       this.amountPaid = this.amountPaid - this.amountPaid * discountLevel2;
+//     } else {
+//       this.amountPaid = this.amountPaid;
+//     }
+//     return this.amountPaid;
+//   },
+// };
+// guestTwo.amountToPay();
+// console.log(
+//   `For our second guest we have ${guestTwo.name}, he spent ${
+//     guestTwo.nightSpent
+//   } nights, he is to pay ${guestTwo.amountToPay()}$`
+// );
+
+// Learnt a bit
+// use function declaration for logic because of its hositing qualities
+// use object to hold data
+// call them to share function
+// its all coming together
+// i kept repeating the same method in each object data
+
+// function declaration as the machine
+function hotelBilling(nightSpent, isVip) {
+  const pricePerNight = 50;
+  const discountLevel1 = 0.2;
+  const discountLevel2 = 0.1;
+  let amountPaid = nightSpent * pricePerNight;
+  if (nightSpent > 7 && isVip) {
+    amountPaid = amountPaid - amountPaid * discountLevel1;
+  } else if (nightSpent > 7 && !isVip) {
+    amountPaid = amountPaid - amountPaid * discountLevel2;
+  } else {
+    amountPaid = amountPaid;
+  }
+  return amountPaid;
+}
+
+// load the data
 const guestOne = {
   name: "MrEazi",
   nightSpent: 8,
   isVip: true,
-  amountToPay: function () {
-    const pricePerNight = 50;
-    const discountLevel1 = 0.2;
-    const discountLevel2 = 0.1;
-    this.amountPaid = this.nightSpent * pricePerNight;
-    if (this.nightSpent > 7 && this.isVip === true) {
-      this.amountPaid = this.amountPaid - this.amountPaid * discountLevel1;
-    } else if (this.nightSpent > 7 && this.isVip === false) {
-      this.amountPaid = this.amountPaid - this.amountPaid * discountLevel2;
-    } else {
-      this.amountPaid = this.amountPaid;
-    }
-    return this.amountPaid;
-  },
 };
-
 const guestTwo = {
   name: "Peller",
   nightSpent: 5,
   isVip: false,
-  amountToPay: function () {
-    const pricePerNight = 50;
-    const discountLevel1 = 0.2;
-    const discountLevel2 = 0.1;
-    this.amountPaid = this.nightSpent * pricePerNight;
-    if (this.nightSpent > 7 && this.isVip === true) {
-      this.amountPaid = this.amountPaid - this.amountPaid * discountLevel1;
-    } else if (this.nightSpent > 7 && this.isVip === false) {
-      this.amountPaid = this.amountPaid - this.amountPaid * discountLevel2;
-    } else {
-      this.amountPaid = this.amountPaid;
-    }
-    return this.amountPaid;
-  },
 };
-
 const guestThree = {
   name: "GehGeh",
   nightSpent: 10,
   isVip: true,
-  amountToPay: function () {
-    const pricePerNight = 50;
-    const discountLevel1 = 0.2;
-    const discountLevel2 = 0.1;
-    this.amountPaid = this.nightSpent * pricePerNight;
-    if (this.nightSpent > 7 && this.isVip === true) {
-      this.amountPaid = this.amountPaid - this.amountPaid * discountLevel1;
-    } else if (this.nightSpent > 7 && this.isVip === false) {
-      this.amountPaid = this.amountPaid - this.amountPaid * discountLevel2;
-    } else {
-      this.amountPaid = this.amountPaid;
-    }
-    return this.amountPaid;
-  },
 };
-guestThree.amountToPay();
-console.log(`For our third guest we have ${guestThree.name}, he spent ${
-  guestThree.nightSpent} nights, he is to pay ${guestThree.amountToPay()}$`);
+
+guestOne.amountPaid = hotelBilling(guestOne.nightSpent, guestOne.isVip);
+guestTwo.amountPaid = hotelBilling(guestTwo.nightSpent, guestTwo.isVip);
+guestThree.amountPaid = hotelBilling(guestThree.nightSpent, guestThree.isVip);
+
+console.log(
+  `${guestOne.name} spent ${guestOne.nightSpent} night and will pay $${guestOne.amountPaid}`
+);
+console.log(
+  `${guestTwo.name} spent ${guestTwo.nightSpent} night and will pay $${guestTwo.amountPaid}`
+);
+console.log(
+  `${guestThree.name} spent ${guestThree.nightSpent} night and will pay $${guestThree.amountPaid}`
+);
+
+// Problem 4: Exam Grading
+
+// You are grading students:
+
+// 90+ = "A"
+
+// 70–89 = "B"
+
+// 50–69 = "C"
+
+// Below 50 = "F"
+
+// You’re given 5 students with name and score.
+
+// 👉 Write a function to calculate each student’s grade
+
+//  and print their results.
+const examGradingSystem = function (scores) {
+  let grading;
+  if (scores >= 90) {
+    grading = "A";
+  } else if (scores >= 70 && scores <= 89) {
+    grading = "B";
+  } else if (scores >= 50 && scores <= 69) {
+    grading = "C";
+  } else {
+    grading = "F";
+  }
+  return grading;
+};
+
+const studentOne = {
+  name: "James",
+  Score: 45,
+};
+const studentTwo = {
+  name: "Michael",
+  Score: 54,
+};
+const studentThree = {
+  name: "John",
+  Score: 72,
+};
+const studentFour = {
+  name: "Williams",
+  Score: 97,
+};
+const studentFive = {
+  name: "Thomas",
+  Score: 38,
+};
+
+studentOne.grading = examGradingSystem(studentOne.Score);
+studentTwo.grading = examGradingSystem(studentTwo.Score);
+studentThree.grading = examGradingSystem(studentThree.Score);
+studentFour.grading = examGradingSystem(studentFour.Score);
+studentFive.grading = examGradingSystem(studentFive.Score);
+
+console.log(
+  `${studentFour.name} scored ${studentFour.Score} ➡️ His Grade is : ${studentFour.grading}`
+);
+
+// Problem 3: Delivery Service
+
+// A delivery company charges $5 per km.
+
+// If the distance is more than 50 km, they reduce the price per km to $4.
+
+// If the package is marked isFragile, they add an extra $20 handling fee.
+
+// You’re given 3 orders with their customerName, distance,
+// and isFragile.
+// 👉 Write a function that calculates the total delivery fee.
+
+function deliveryService(distance, isFragile) {
+  let deliveryPricePer = 5;
+  const handlingFee = 20;
+  let deliveryCharges;
+  if (distance > 50 && isFragile) {
+    deliveryPricePer = 4;
+    deliveryCharges = deliveryPricePer * distance + handlingFee;
+    return `${deliveryCharges}`;
+  } else if (distance > 50 && !isFragile) {
+    deliveryPricePer = 4;
+    deliveryCharges = deliveryPricePer * distance;
+    return `${deliveryCharges}`;
+  } else {
+    deliveryCharges = deliveryPricePer * distance;
+    return `${deliveryCharges}`;
+  }
+}
+
+const orderOne = {
+  customerName: "John Robert",
+  distance: 56,
+  isFragile: true,
+  itemsToDrop: ["glasses", "Laboratoy Equipment", "Tiles"],
+  deliverTo: "Ibadan",
+};
+const orderTwo = {
+  customerName: "Williams Richard",
+  distance: 49,
+  isFragile: false,
+  itemsToDrop: ["bags", "leather", "nylon"],
+  deliverTo: "Amoyo",
+};
+const orderThree = {
+  customerName: "Judexify",
+  distance: 66,
+  isFragile: true,
+  itemsToDrop: ["Samsung S22 Ultra", "Samsung Screen"],
+  deliverTo: "abuja",
+};
+
+orderOne.deliveryCharges = deliveryService(
+  orderOne.distance,
+  orderOne.isFragile
+);
+orderTwo.deliveryCharges = deliveryService(
+  orderTwo.distance,
+  orderTwo.isFragile
+);
+orderThree.deliveryCharges = deliveryService(
+  orderThree.distance,
+  orderThree.isFragile
+);
+
+console.log(`${orderThree.customerName} wants to send ${orderThree.itemsToDrop}
+  to ${orderThree.deliverTo} and his fees is $${orderThree.deliveryCharges}`);
+
+console.log(`${orderTwo.customerName} wants to send ${orderTwo.itemsToDrop}
+  to ${orderTwo.deliverTo} and his fees is $${orderTwo.deliveryCharges}`);
