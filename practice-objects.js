@@ -384,3 +384,108 @@ console.log(`${orderThree.customerName} wants to send ${orderThree.itemsToDrop}
 
 console.log(`${orderTwo.customerName} wants to send ${orderTwo.itemsToDrop}
   to ${orderTwo.deliverTo} and his fees is $${orderTwo.deliveryCharges}`);
+
+//   🚚 Delivery Company Extension
+
+// A delivery truck can carry multiple customer orders in one trip.
+
+// Each order has:
+
+// customerName
+
+// distance (in km)
+
+// isFragile (true/false)
+
+// itemsToDrop (array of items)
+
+// deliverTo (city name)
+
+// Rules:
+
+// Base price per km = $5.
+
+// If distance > 50 km → price per km reduces to $4.
+
+// If order is fragile and distance > 50 km → add a handling fee of $20.
+
+// The truck must calculate the total income for the trip (sum of all orders).
+
+// The system should also output a summary report showing:
+
+// Each customer’s name, destination, and their individual fee.
+
+// The total income for the trip.
+
+function deliveryCompanyExtention(distance, isFragile) {
+  let deliveryPricePer = 5;
+  const handlingFee = 20;
+  let deliveryCharges;
+  if (distance > 50 && isFragile) {
+    deliveryPricePer = 4;
+    deliveryCharges = deliveryPricePer * distance + handlingFee;
+    return `${deliveryCharges}`;
+  } else if (distance > 50 && !isFragile) {
+    deliveryPricePer = 4;
+    deliveryCharges = deliveryPricePer * distance;
+    return `${deliveryCharges}`;
+  } else {
+    deliveryCharges = deliveryPricePer * distance;
+    return `${deliveryCharges}`;
+  }
+}
+
+const orders = [
+  {
+    customerName: "Alice",
+    distance: 60,
+    isFragile: true,
+    itemsToDrop: ["Glass table", "Lamp"],
+    deliverTo: "Lagos",
+  },
+  {
+    customerName: "Bob",
+    distance: 30,
+    isFragile: false,
+    itemsToDrop: ["Books", "Backpack"],
+    deliverTo: "Ibadan",
+  },
+  {
+    customerName: "Charlie",
+    distance: 80,
+    isFragile: false,
+    itemsToDrop: ["Shoes", "Clothes"],
+    deliverTo: "Abuja",
+  },
+];
+
+const firstObject = orders[0];
+const secondObject = orders[1];
+const thirdObject = orders[2];
+
+firstObject.deliveryCharges = deliveryCompanyExtention(
+  firstObject.distance,
+  firstObject.isFragile
+);
+secondObject.deliveryCharges = deliveryCompanyExtention(
+  secondObject.distance,
+  secondObject.isFragile
+);
+thirdObject.deliveryCharges = deliveryCompanyExtention(
+  thirdObject.distance,
+  thirdObject.isFragile
+);
+const totalIncome =
+  Number(firstObject.deliveryCharges) +
+  Number(secondObject.deliveryCharges) +
+  Number(thirdObject.deliveryCharges);
+console.log(totalIncome);
+console.log(
+  `${firstObject.customerName} wants to deliver ${firstObject.itemsToDrop} to ${firstObject.deliverTo} his fees is ${firstObject.deliveryCharges}`
+);
+console.log(
+  `${secondObject.customerName} wants to deliver ${secondObject.itemsToDrop} to ${secondObject.deliverTo} his fees is ${secondObject.deliveryCharges}`
+);
+console.log(
+  `${thirdObject.customerName} wants to deliver ${thirdObject.itemsToDrop} to ${thirdObject.deliverTo} his fees is ${thirdObject.deliveryCharges}`
+);
